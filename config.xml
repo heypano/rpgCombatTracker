@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<widget xmlns 		= "http://www.w3.org/ns/widgets"
-    	xlmns:gap 	= "http://phonegap.com/ns/1.0"
-    	id			= "com.heypano.dndCombatTracker"
-    	versionCode	= "1"
-    	version		= "1.0">
+	
+<!-- config.xml reference: https://build.phonegap.com/docs/config-xml -->
+<widget xmlns 	= "http://www.w3.org/ns/widgets"
+   	xlmns:gap 	= "http://phonegap.com/ns/1.0"
+   	id			= "com.heypano.dndCombatTracker"
+   	versionCode	= "1"
+   	version		= "1.0">
 
 	<name>DnD Combat Tracker</name>
 	<description>Dungeons and Dragons combat tracker (initiative and stuff)</description>
@@ -23,7 +25,7 @@
 	<preference name="KeepRunning" value="true" />
 	
 	<icon src="res/icon/icon.png" gap:platform="ios" width="128" height="128" />
-	<icon src="res/icon/icon.png" gap:platform="android" width="128" height="128" gap:density="xhdpi"/>
+	<icon src="res/icon/icon.png" gap:platform="android" width="128" height="128" gap:density="xhdpi" />
 	
 	<gap:splash src="res/screen/splash.png" gap:platform="android" gap:density="xhdpi" />
 	<gap:plugin name="org.apache.cordova.splashscreen" />
