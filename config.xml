@@ -24,6 +24,8 @@
 	<preference name="BackgroundColor" value="0x12345678" />
 	<preference name="KeepRunning" value="true" />
 	
+	<preference name="permissions" value="none"/>
+	
 	<icon src="res/icon/icon.png" gap:platform="ios" width="128" height="128" />
 	<icon src="res/icon/icon.png" gap:platform="android" width="128" height="128" gap:density="xhdpi" />
 	
