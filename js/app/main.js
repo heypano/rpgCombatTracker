@@ -1,3 +1,6 @@
+var draggableWidth = 100;
+var leftPadding = 10;
+
 $(document).ready(function(e){
 	makeDraggable();
 });
@@ -6,9 +9,9 @@ $(document).ready(function(e){
 function makeDraggable(){
 	$('.dragme').pep({
 		axis:					'x',
-		grid:					[100,100],
+		grid:					[draggableWidth],
 		shouldEase: 			false,
 		useCSSTranslation: 		false,
-		constrainTo:			[undefined,100,undefined,10], //[top, right, bottom, left]
+		constrainTo:			[undefined,3*draggableWidth+leftPadding,undefined,leftPadding], //[top, right, bottom, left]
 	}); 
 }

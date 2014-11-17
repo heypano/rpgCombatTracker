@@ -1,9 +1,22 @@
+/**
+  *	General 
+  */
+
 div#header,
 div#content
 {
 	padding-left:10px;	
 	padding-right:10px;	
 }
+
+/**
+  *
+  */
+
+
+/**
+  *	Draggables
+  */
 
 div.dragme{
 	width:100px;
@@ -15,3 +28,6 @@ div.dragme{
 	text-align: center;
 }
 
+div.dragContainer{
+	height:40px;
+}
