@@ -63,8 +63,8 @@ loadPlayerConfig();
  */
 
 // getHumanPlayer(name, containerSelector);
-// (String) name : player name (Optional: Generic Numbered Name if undefined)
-// (String) containerSelector : jquery selector for container div
+// (String) name : player name (optional: Generic Numbered Name if undefined)
+// (String) containerSelector : (optional) jquery selector for container div
 //
 // Returns: player instance
 Player.getHumanPlayer = function (name, containerSelector) {
@@ -79,8 +79,8 @@ Player.getHumanPlayer = function (name, containerSelector) {
 };
 
 // getNPC(name, containerSelector);
-// (String) name : player name (Optional: Generic Numbered Name if undefined)
-// (String) containerSelector : jquery selector for container div
+// (String) name : player name (optional: Generic Numbered Name if undefined)
+// (String) containerSelector : (optional) jquery selector for container div
 //
 // Returns: player instance
 Player.getNPC = function (name, containerSelector) {
