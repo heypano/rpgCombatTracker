@@ -2,12 +2,25 @@ var draggableWidth = 100;
 var leftPadding = 10;
 
 $(document).ready(function(e){
-	makeDraggable();
+	Player.getHumanPlayer(undefined, "#playerList");
+	Player.getHumanPlayer(undefined, "#playerList");
+	Player.getHumanPlayer(undefined, "#playerList");
+	Player.getHumanPlayer(undefined, "#playerList");
+    Player.getNPC(undefined, "#playerList");
+    Player.getNPC(undefined, "#playerList");
+    Player.getNPC(undefined, "#playerList");
+    Player.getHumanPlayer(undefined, "#playerList");
+                  
+
+    init();
 });
 
+function init(){
+    makeDraggable('.draggable');
+}
 
-function makeDraggable(){
-	$('.dragme').pep({
+function makeDraggable(selector){
+	$(selector).pep({
 		axis:					'x',
 		grid:					[draggableWidth],
 		shouldEase: 			false,

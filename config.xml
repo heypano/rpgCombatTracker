@@ -3,11 +3,11 @@
 <!-- config.xml reference: https://build.phonegap.com/docs/config-xml -->
 <widget xmlns 	= "http://www.w3.org/ns/widgets"
    	xmlns:gap 	= "http://phonegap.com/ns/1.0"
-   	id			= "com.heypano.dndCombatTracker"
+   	id			= "com.heypano.rpgCombatTracker"
    	versionCode	= "1"
    	version		= "1.0">
 
-	<name>DnD Combat Tracker</name>
+	<name>RPG Combat Tracker</name>
 	<description>Dungeons and Dragons combat tracker (initiative and stuff)</description>
 	<author href="www.heypano.com" email="pano@heypano.com">Pano Papadatos</author>
 	<gap:platform name="android" />
