@@ -32,20 +32,33 @@ div#appTitle
   * Content
   */
 
+div.player{
+    color: white;
+    text-shadow: none;
+}
+
+div.player.human
+{
+    background-color: #C88B62;
+}
+
+div.player.npc{
+    background-color: #3E7E73;
+}
+
 /**
   *	Draggables
   */
 
 div.draggable{
-	width:100px;
-	height:30px;
-	line-height:30px;
-	background-color: #ffaacc;
+	width:250px;
+	height:50px;
+	line-height:50px;
 	border: 1px solid black;
 	border-radius: 5px;
 	text-align: center;
 }
 
 div.dragContainer{
-	height:40px;
+	height:60px;
 }

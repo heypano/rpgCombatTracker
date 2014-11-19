@@ -40,12 +40,10 @@ function loadPlayerConfig(config) {
     Player.types = {};
     Player.types.human = {
         name : "P", //TODO: EXTERNALIZE THESE
-        color : "rgb(0,255,255);",
         currentNum : 0
     };
     Player.types.npc = {
         name : "NPC",
-        color : "rgb(255,255,0);",
         currentNum : 0
     };
     Player.list = []; // List of all players

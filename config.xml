@@ -8,7 +8,7 @@
    	version		= "1.0">
 
 	<name>RPG Combat Tracker</name>
-	<description>Dungeons and Dragons combat tracker (initiative and stuff)</description>
+	<description>Role Playing Game combat tracker (initiative and stuff)</description>
 	<author href="www.heypano.com" email="pano@heypano.com">Pano Papadatos</author>
 	<gap:platform name="android" />
 	<preference name="phonegap-version" value="3.6.3" />
@@ -23,6 +23,7 @@
 	<preference name="android-installLocation" value="auto" />
 	<preference name="BackgroundColor" value="0x12345678" />
 	<preference name="KeepRunning" value="true" />
+	<preference name="keepRunning" value="true" />
 	
 	<preference name="permissions" value="none"/>
 	

@@ -1,4 +1,4 @@
-var draggableWidth = 100;
+var draggableWidth = 250;
 var leftPadding = 10;
 
 $(document).ready(function(e){
