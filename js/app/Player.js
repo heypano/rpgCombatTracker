@@ -23,11 +23,13 @@ function Player(name, type) {
     }
     this.num = thisType.currentNum;
     this.element = this.getDOMElement();
-    
+    Player.list.push(this);
 }
 
 /**
+ *
  *  Static (Class) properties
+ *
  */
 
 function loadPlayerConfig(config) {
@@ -46,8 +48,10 @@ function loadPlayerConfig(config) {
         color : "rgb(255,255,0);",
         currentNum : 0
     };
-
-    // Player.queue = [];
+    Player.list = []; // List of all players
+    Player.queue = []; // Queue
+    
+    // Player.currentHealth
     // Player.currentPlayer = ;
     // Player.
 
@@ -59,10 +63,15 @@ function loadPlayerConfig(config) {
 loadPlayerConfig();
 
 /**
- *  Static (Class) Functions
+ *  
+ * Static (Class) Functions
+ *
  */
 
-// getHumanPlayer(name, containerSelector);
+// Player.getHumanPlayer(name, containerSelector);
+//
+// Creates a new (Human) player instance and optionally appends it to the selector described
+//
 // (String) name : player name (optional: Generic Numbered Name if undefined)
 // (String) containerSelector : (optional) jquery selector for container div
 //
@@ -72,13 +81,16 @@ Player.getHumanPlayer = function (name, containerSelector) {
     
     var player = new Player(name, "human");
     if (containerSelector) {
-        player.attachTo(containerSelector);
+        player.appendTo(containerSelector);
     }
     
     return player;
 };
 
-// getNPC(name, containerSelector);
+// Player.getNPC(name, containerSelector);
+//
+// Creates a new (NPC) player instance and optionally appends it to the selector described
+//
 // (String) name : player name (optional: Generic Numbered Name if undefined)
 // (String) containerSelector : (optional) jquery selector for container div
 //
@@ -88,13 +100,24 @@ Player.getNPC = function (name, containerSelector) {
     
     var player = new Player(name, "npc");
     if (containerSelector) {
-        player.attachTo(containerSelector);
+        player.appendTo(containerSelector);
     }
     return player;
 };
 
+// Player.getTotalPlayers()
+//
+// Returns the number of total players
+Player.getTotalPlayers = function () {
+    "use strict";
+    var list = Player.list;
+    return list.length;
+};
+
 /**
+ *
  *  Instance Methods
+ *
  */
 
 Player.prototype.getDOMElement = function () {
@@ -104,7 +127,7 @@ Player.prototype.getDOMElement = function () {
     return element;
 };
 
-Player.prototype.attachTo = function (selector) {
+Player.prototype.appendTo = function (selector) {
     "use strict";
     
     $(selector).append(this.element);
