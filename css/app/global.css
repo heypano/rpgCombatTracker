@@ -5,12 +5,17 @@
     font-family: Ruthie;
     src: url(../../res/fonts/Ruthie-Regular.ttf);
 }
+@font-face {
+    font-family: Lato;
+    src: url(../../res/fonts/Lato-Regular.ttf);
+}
 
 div#header,
 div#content
 {
 	padding-left:10px;	
-	padding-right:10px;	
+	padding-right:10px;
+    font-family: Lato;
 }
 
 /**
@@ -18,12 +23,12 @@ div#content
   */
 div#header
 {
-	margin-bottom: 10px;	
+	margin-bottom: 60px;	
 }
 
 div#appTitle
 {
-	font-family: Ruthie;
+	font-family: Lato;
 	font-size: 250%;
 }
 
@@ -33,17 +38,29 @@ div#appTitle
   */
 
 div.player{
-    color: white;
     text-shadow: none;
+	color: white;
 }
 
 div.player.human
 {
-    background-color: #C88B62;
+    background-color: #9BC362;
 }
 
 div.player.npc{
-    background-color: #3E7E73;
+    background-color: #D4786A;
+}
+
+div.player .initiative{
+    width: 30px;
+    padding-right: 10px;
+    color: black;
+}
+
+div.player .initiative{
+    float: right;
+    padding-right: 10px;
+    color: black;
 }
 
 /**
@@ -54,7 +71,7 @@ div.draggable{
 	width:250px;
 	height:50px;
 	line-height:50px;
-	border: 1px solid black;
+	border: 0px solid black;
 	border-radius: 5px;
 	text-align: center;
 }

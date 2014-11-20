@@ -1,11 +1,11 @@
 /*jslint browser: true*/
-/*global $, jQuery, alert*/
+/*global $, jQuery, alert, Widget*/
 
 /**
  *  Constructor
  */
 
-function Player(name, type) {
+function Player(type, containerSelector, name) {
     "use strict";
     
     var thisType = Player.types[type];
@@ -22,7 +22,11 @@ function Player(name, type) {
         this.type = type;
     }
     this.num = thisType.currentNum;
-    this.element = this.getDOMElement();
+    this.initiative = 10;
+    
+    // Add Widget here
+    this.widget = new Widget(this, containerSelector);
+    
     Player.list.push(this);
 }
 
@@ -47,7 +51,7 @@ function loadPlayerConfig(config) {
         currentNum : 0
     };
     Player.list = []; // List of all players
-    Player.queue = []; // Queue
+    //Player.queue = []; // Queue
     
     // Player.currentHealth
     // Player.currentPlayer = ;
@@ -66,40 +70,19 @@ loadPlayerConfig();
  *
  */
 
-// Player.getHumanPlayer(name, containerSelector);
+// Player.getPlayer(type, name, containerSelector);
 //
 // Creates a new (Human) player instance and optionally appends it to the selector described
-//
+// (String) type : player type (look at Player.types)
+// (String) containerSelector : jquery selector for container div
 // (String) name : player name (optional: Generic Numbered Name if undefined)
-// (String) containerSelector : (optional) jquery selector for container div
 //
 // Returns: player instance
-Player.getHumanPlayer = function (name, containerSelector) {
+Player.getPlayer = function (type, containerSelector, name) {
     "use strict";
     
-    var player = new Player(name, "human");
-    if (containerSelector) {
-        player.appendTo(containerSelector);
-    }
+    var player = new Player(type, containerSelector, name);
     
-    return player;
-};
-
-// Player.getNPC(name, containerSelector);
-//
-// Creates a new (NPC) player instance and optionally appends it to the selector described
-//
-// (String) name : player name (optional: Generic Numbered Name if undefined)
-// (String) containerSelector : (optional) jquery selector for container div
-//
-// Returns: player instance
-Player.getNPC = function (name, containerSelector) {
-    "use strict";
-    
-    var player = new Player(name, "npc");
-    if (containerSelector) {
-        player.appendTo(containerSelector);
-    }
     return player;
 };
 
@@ -118,16 +101,9 @@ Player.getTotalPlayers = function () {
  *
  */
 
-Player.prototype.getDOMElement = function () {
+Player.prototype.updateInitiative = function (initiative) {
     "use strict";
     
-    var element = '<div class="dragContainer"><div class="draggable player ' + this.type + ' num' + this.num + '">' + this.name + '</div></div>';
-    return element;
-};
-
-Player.prototype.appendTo = function (selector) {
-    "use strict";
-    
-    $(selector).append(this.element);
+    this.initiative = initiative;
 };
 

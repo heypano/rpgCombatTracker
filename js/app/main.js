@@ -1,30 +1,16 @@
-var draggableWidth = 250;
-var leftPadding = 10;
+/*jslint browser: true*/
+/*global $, jQuery, alert, Widget, Player*/
 
-$(document).ready(function(e){
-	Player.getHumanPlayer(undefined, "#playerList");
-	Player.getHumanPlayer(undefined, "#playerList");
-	Player.getHumanPlayer(undefined, "#playerList");
-	Player.getHumanPlayer(undefined, "#playerList");
-    Player.getNPC(undefined, "#playerList");
-    Player.getNPC(undefined, "#playerList");
-    Player.getNPC(undefined, "#playerList");
-    Player.getHumanPlayer(undefined, "#playerList");
+function init() {
+    "use strict";
+}
+
+$(document).ready(function (e) {
+    "use strict";
+	Player.getPlayer("human", "#playerList");
+	Player.getPlayer("npc", "#playerList");
                   
 
     init();
 });
 
-function init(){
-    makeDraggable('.draggable');
-}
-
-function makeDraggable(selector){
-	$(selector).pep({
-		axis:					'x',
-		grid:					[draggableWidth],
-		shouldEase: 			false,
-		useCSSTranslation: 		false,
-		constrainTo:			[undefined,3*draggableWidth+leftPadding,undefined,leftPadding], //[top, right, bottom, left]
-	}); 
-}
