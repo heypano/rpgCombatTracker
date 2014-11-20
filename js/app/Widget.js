@@ -16,7 +16,7 @@ function Widget(player, containerSelector) {
     
     this.player = player;
     this.id = this.player.type + this.player.num;
-    this.classes = [this.player.type, "draggable", "player"];
+    this.classes = [this.player.type, "draggable", "player", "noselect"];
 
     this.html = this.getHTML();
     $(containerSelector).append(this.html);
@@ -42,6 +42,8 @@ function Widget(player, containerSelector) {
  *  Instance Methods
  *
  */
+
+//TODO add double click to name
 
 Widget.prototype.updateInitiative = function (initiative) {
     "use strict";

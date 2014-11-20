@@ -10,11 +10,13 @@
     src: url(../../res/fonts/Lato-Regular.ttf);
 }
 
+/* TODO make nothing selectable */
+
 div#header,
-div#content
+div#content,
+div#menu
 {
-	padding-left:10px;	
-	padding-right:10px;
+    padding-left:10px;	
     font-family: Lato;
 }
 
@@ -32,6 +34,35 @@ div#appTitle
 	font-size: 250%;
 }
 
+/**
+  * Menu
+  */
+
+div#menu{
+    padding-bottom: 20px;
+}
+
+div#menu .button{
+    width: 100px;
+    border: 1px solid black;
+    height:50px;
+	line-height:50px;
+    text-align: center;
+    display: inline-block;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #998E8E;
+    text-shadow: none;
+}
+
+.noselect{
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+
 
 /**
   * Content
@@ -40,11 +71,12 @@ div#appTitle
 div.player{
     text-shadow: none;
 	color: white;
+    cursor: pointer;
 }
 
 div.player.human
 {
-    background-color: #9BC362;
+    background-color: #9BC362; /* http://paletton.com/#uid=3060u0kg0qB6pHIb0vBljljq+fD */
 }
 
 div.player.npc{
