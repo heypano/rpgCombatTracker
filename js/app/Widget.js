@@ -75,18 +75,28 @@ Widget.prototype.makeDraggable = function () {
         nameselector = "#" + this.id + ".name",
         initiativeselector = "#" + this.id + ".initiative",
         widget = this,
-        player = this.player;
+        player = this.player,
+        
+        $pep;
     
-    // Make this draggable (left/right)
     // TODO: consider removing pep - not sure it adds much
     // TODO: separate which part you touched first - move up/down if touching initative, left/right otherwise
-    $(playerselector).pep({
-		axis:                     'x',
-		grid:                     [draggableWidth],
-		shouldEase:               false,
-		useCSSTranslation:        false,
-		constrainTo:              [undefined, 3 * draggableWidth + leftPadding, undefined, leftPadding] //[top, right, bottom, left]
-	});
+    
+    function unpep() { // Disables left/right movement for this widget
+        if ($pep) {
+            $.pep.unbind($pep);
+        }
+    }
+    function pep() { // Enables left/right movement for this widget
+        unpep();
+        $pep = $(playerselector).pep({      // Make this draggable (left/right)
+            axis:                     'x',
+            grid:                     [draggableWidth],
+            shouldEase:               false,
+            useCSSTranslation:        false,
+            constrainTo:              [undefined, 3 * draggableWidth + leftPadding, undefined, leftPadding] //[top, right, bottom, left]
+        });
+    }
     
 
     // Handle initiative  changes
@@ -98,6 +108,7 @@ Widget.prototype.makeDraggable = function () {
             //console.log("vmouseup");
             $(document).off("vmouseup.clickableElement");
             $(document).off("vmousemove.clickableElement");
+            pep(); // Enable Left/Right movement for this widget
         }
 
         function touchMoveHandler(e) {
@@ -111,6 +122,7 @@ Widget.prototype.makeDraggable = function () {
             if (adjustment) {
                 widget.updateInitiative(player.initiative + adjustment);
                 originalY = currentY;
+                unpep(); // Disable Left/Right movement for this widget if we get a value change (if user moves sufficiently up or down)
             }
         }
         
