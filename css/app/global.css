@@ -63,6 +63,10 @@ div#menu .button{
     user-select: none;
 }
 
+.divider{
+    width: 40px;
+    display: inline-block;
+}
 
 /**
   * Content
@@ -81,6 +85,11 @@ div.player.human
 
 div.player.npc{
     background-color: #D4786A;
+}
+
+div.player.current{
+    background-color: #69929D;
+    margin-left: 5px;
 }
 
 div.player .initiative{

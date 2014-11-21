@@ -4,17 +4,23 @@
 function newHumanHandler(e) {
     "use strict";
     /* TODO maybe add naming widget here? */
-    Player.getPlayer("human", "#playerList");
+    Player.getPlayer("human");
 }
 
 function newNPCHandler(e) {
     "use strict";
     /* TODO maybe add naming widget here? */
-    Player.getPlayer("npc", "#playerList");
+    Player.getPlayer("npc");
+}
+
+function nextHandler(e) {
+    "use strict";
+    Player.queue.next();
 }
 
 function initButtons() {
     "use strict";
     $("#newHuman").click(newHumanHandler);
     $("#newNPC").click(newNPCHandler);
+    $("#next").click(nextHandler);
 }

@@ -11,10 +11,10 @@ $(document).ready(function (e) {
     var initialHumans = 2;
     var initialNPCs = 2;
     for(var i = 0 ; i < initialHumans ; i++){
-	   Player.getPlayer("human", "#playerList");
+	   Player.getPlayer("human");
     }
     for(var i = 0 ; i < initialNPCs ; i++){
-	   Player.getPlayer("npc", "#playerList");
+	   Player.getPlayer("npc");
     }
 
     init();

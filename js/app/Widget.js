@@ -1,17 +1,17 @@
 /*jslint browser: true*/
-/*global $, jQuery, alert, console*/
+/*global $, jQuery, alert, console, Player*/
 
 /**
  *  Global vars
  */
 var draggableWidth = 250;
 var leftPadding = 10;
-
+var containerSelector = "#playerList";
 /**
  *  Constructor
  */
 
-function Widget(player, containerSelector) {
+function Widget(player) {
     "use strict";
     
     this.player = player;
@@ -19,9 +19,8 @@ function Widget(player, containerSelector) {
     this.classes = [this.player.type, "draggable", "player", "noselect"];
 
     this.html = this.getHTML();
-    $(containerSelector).append(this.html);
     
-    this.makeDraggable();
+    //this.makeDraggable();
 }
 
 /**
@@ -55,7 +54,6 @@ Widget.prototype.updateInitiative = function (initiative) {
     // Update widget
     $(selector).text(initiative);
 
-    //TODO call rearrange queue function
 };
 
 
@@ -104,13 +102,16 @@ Widget.prototype.makeDraggable = function () {
     // Handle initiative  changes
     function touchDownHandler(e) {
         //console.log("vmousedown");
-        var originalY = e.screenY;
-        
+        var originalY = e.screenY,
+            originalInitiative = player.initiative;
         function touchUpHandler(e) {
             //console.log("vmouseup");
             $(document).off("vmouseup.clickableElement");
             $(document).off("vmousemove.clickableElement");
             pep(); // Enable Left/Right movement for this widget
+            if (originalInitiative !== player.initiative) {
+                Player.redraw(containerSelector);
+            }
         }
 
         function touchMoveHandler(e) {

@@ -1,11 +1,12 @@
 /*jslint browser: true*/
-/*global $, jQuery, alert, Widget*/
+/*global $, jQuery, alert, Widget, PlayerQueue, containerSelector*/
+
 
 /**
  *  Constructor
  */
 
-function Player(type, containerSelector, name) {
+function Player(type, name) {
     "use strict";
     
     var thisType = Player.types[type];
@@ -25,9 +26,10 @@ function Player(type, containerSelector, name) {
     this.initiative = 10;
     
     // Add Widget here
-    this.widget = new Widget(this, containerSelector);
+    this.widget = new Widget(this);
     
     Player.list.push(this);
+    Player.redraw(containerSelector);
 }
 
 /**
@@ -51,7 +53,7 @@ function loadPlayerConfig(config) {
         currentNum : 0
     };
     Player.list = []; // List of all players
-    //Player.queue = []; // Queue
+    Player.queue = new PlayerQueue(Player.list);
     
     // Player.currentHealth
     // Player.currentPlayer = ;
@@ -70,18 +72,34 @@ loadPlayerConfig();
  *
  */
 
-// Player.getPlayer(type, name, containerSelector);
+Player.redraw = function (containerSelector) {
+    "use strict";
+    var html = "";
+    Player.queue.reconfigure();
+    Player.queue.queue.forEach(function (obj, i) {
+        html += obj.widget.getHTML();
+    });
+    
+    // Empty previous content
+    $(containerSelector).html(html);
+    Player.queue.queue.forEach(function (obj, i) {
+        obj.widget.makeDraggable();
+    });
+    
+    
+};
+
+// Player.getPlayer(type, name);
 //
 // Creates a new (Human) player instance and optionally appends it to the selector described
 // (String) type : player type (look at Player.types)
-// (String) containerSelector : jquery selector for container div
 // (String) name : player name (optional: Generic Numbered Name if undefined)
 //
 // Returns: player instance
-Player.getPlayer = function (type, containerSelector, name) {
+Player.getPlayer = function (type, name) {
     "use strict";
     
-    var player = new Player(type, containerSelector, name);
+    var player = new Player(type, name);
     
     return player;
 };
